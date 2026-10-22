@@ -1,0 +1,21 @@
+{
+	"name": "dsa-patterns",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"test": "bun test",
+		"test:watch": "bun test --watch",
+		"typecheck": "tsc --noEmit",
+		"new": "bun scripts/new.ts",
+		"format": "bunx biome format --write",
+		"lint": "bunx biome lint --write",
+		"check": "bunx biome check --write"
+	},
+	"trustedDependencies": [],
+	"devDependencies": {
+		"@biomejs/biome": "2.2.2",
+		"@types/bun": "1.4.3",
+		"typescript": "7.0.2"
+	}
+}

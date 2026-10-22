@@ -1,0 +1,20 @@
+{
+	"files": {
+		"ignoreUnknown": false,
+		"includes": ["src/**", "scripts/**"]
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": false,
+			"style": {
+				"useNodejsImportProtocol": "error",
+				"useNumberNamespace": "error"
+			},
+			"suspicious": {
+				"noDoubleEquals": "error",
+				"useIsArray": "error"
+			}
+		}
+	}
+}
