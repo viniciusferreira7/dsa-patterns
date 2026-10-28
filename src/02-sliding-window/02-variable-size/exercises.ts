@@ -56,3 +56,28 @@ export function minSubarrayLen(nums: number[], target: number): number {
 
 	return best === Number.POSITIVE_INFINITY ? 0 : best;
 }
+
+// Ex. 3 (maior): comprimento do maior subarray com no máximo dois 0s.
+// nums só tem 0s e 1s.
+// Brinquedo: nums = [1, 0, 1, 1, 0, 0, 1]
+export function longestWithTwoZeros(nums: number[]): number {
+	if (!nums.length) return 0;
+
+	let best = 0;
+	let left = 0;
+	let matches = 0;
+
+	for (let right = 0; right < nums.length; right++) {
+		if (nums[right] === 0) matches++;
+
+		while (matches > 2) {
+			if (nums[left] === 0) matches--;
+
+			left++;
+		}
+
+		best = Math.max(right - left + 1, best);
+	}
+
+	return best;
+}

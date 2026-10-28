@@ -1,5 +1,9 @@
 import { describe, expect, it } from "bun:test";
-import { longestWithOneB, minSubarrayLen } from "./exercises";
+import {
+	longestWithOneB,
+	longestWithTwoZeros,
+	minSubarrayLen,
+} from "./exercises";
 
 describe("longestWithOneB", () => {
 	it("solves the toy example", () => {
@@ -52,5 +56,31 @@ describe("minSubarrayLen", () => {
 
 	it("handles zeros", () => {
 		expect(minSubarrayLen([0, 0, 3, 0, 4], 7)).toBe(3);
+	});
+});
+
+describe("longestWithTwoZeros", () => {
+	it("solves the toy example", () => {
+		expect(longestWithTwoZeros([1, 0, 1, 1, 0, 0, 1])).toBe(5);
+	});
+
+	it("returns 0 for an empty array", () => {
+		expect(longestWithTwoZeros([])).toBe(0);
+	});
+
+	it("takes the whole array when there is no 0", () => {
+		expect(longestWithTwoZeros([1, 1, 1])).toBe(3);
+	});
+
+	it("takes the whole array with exactly two 0s", () => {
+		expect(longestWithTwoZeros([0, 1, 1, 0])).toBe(4);
+	});
+
+	it("handles an array made only of 0s", () => {
+		expect(longestWithTwoZeros([0, 0, 0, 0])).toBe(2);
+	});
+
+	it("finds the best window at the end", () => {
+		expect(longestWithTwoZeros([0, 0, 0, 1, 1, 0, 1])).toBe(5);
 	});
 });
