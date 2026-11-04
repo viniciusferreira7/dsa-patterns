@@ -13,7 +13,7 @@ export function maxWindowSum(nums: number[], k: number): number {
 	for (let right = 0; right < nums.length; right++) {
 		windowSum += nums[right];
 
-		while (right - left + 1 >= k) {
+		if (right - left + 1 >= k) {
 			best = Math.max(best, windowSum);
 			windowSum -= nums[left];
 
@@ -28,7 +28,7 @@ export function maxWindowSum(nums: number[], k: number): number {
 export function longestAtMostKZeros(nums: number[], k: number): number {
 	if (!nums.length) return 0;
 
-	let best = Number.NEGATIVE_INFINITY;
+	let best = 0;
 	let left = 0;
 
 	let matches = 0;
@@ -45,7 +45,7 @@ export function longestAtMostKZeros(nums: number[], k: number): number {
 		best = Math.max(best, right - left + 1);
 	}
 
-	return best === Number.NEGATIVE_INFINITY ? nums.length : best;
+	return best;
 }
 
 // Janela variável (menor): comprimento do menor subarray com soma >= target (0 se não existir).
